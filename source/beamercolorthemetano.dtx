@@ -1,10 +1,11 @@
 % \iffalse meta-comment -------------------------------------------------------
-% Copyright 2015 Matthias Vogelgesang and the LaTeX community. A full list of
-% contributors can be found at
+% Copyright 2016 Tadej Novak and the LaTeX community.
+% A full list of contributors can be found at
 %
-%     https://github.com/matze/mtheme/graphs/contributors
+%     https://github.com/ntadej/beamertheme-tano/graphs/contributors
 %
-% and the original template was based on the HSRM theme by Benjamin Weiss.
+% The original template is based on the Metropolis theme by
+% Matthias Vogelgesang and on the HSRM theme by Benjamin Weiss.
 %
 % This work is licensed under a Creative Commons Attribution-ShareAlike 4.0
 % International License (https://creativecommons.org/licenses/by-sa/4.0/).
@@ -12,7 +13,7 @@
 % \iffalse
 %<*package>
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{beamercolorthememetropolis}[2016/03/14 Metropolis color theme]
+\ProvidesPackage{beamercolorthemetano}[2016/10/20 Tano color theme]
 %</package>
 % \fi
 % \CheckSum{0}
@@ -39,10 +40,10 @@
 %    |theorem| and |example|.
 %    \begin{macrocode}
 \pgfkeys{
-  /metropolis/color/block/.cd,
+  /tano/color/block/.cd,
     .is choice,
-    transparent/.code=\metropolis@block@transparent,
-    fill/.code=\metropolis@block@fill,
+    transparent/.code=\tano@block@transparent,
+    fill/.code=\tano@block@fill,
 }
 %    \end{macrocode}
 % \end{macro}
@@ -52,19 +53,19 @@
 %    of the reverse.
 %    \begin{macrocode}
 \pgfkeys{
-  /metropolis/color/background/.cd,
+  /tano/color/background/.cd,
     .is choice,
-    dark/.code=\metropolis@colors@dark,
-    light/.code=\metropolis@colors@light,
+    dark/.code=\tano@colors@dark,
+    light/.code=\tano@colors@light,
 }
 %    \end{macrocode}
 % \end{macro}
 %
-% \begin{macro}{\metropolis@color@setdefaults}
+% \begin{macro}{\tano@color@setdefaults}
 %    Sets default values for color theme options.
 %    \begin{macrocode}
-\newcommand{\metropolis@color@setdefaults}{
-  \pgfkeys{/metropolis/color/.cd,
+\newcommand{\tano@color@setdefaults}{
+  \pgfkeys{/tano/color/.cd,
     background=light,
     block=transparent,
   }
@@ -91,14 +92,14 @@
 % |alerted text|, and |example text|.
 %
 %    \begin{macrocode}
-\newcommand{\metropolis@colors@dark}{
+\newcommand{\tano@colors@dark}{
   \setbeamercolor{normal text}{%
     fg=black!2,
     bg=mDarkTeal
   }
   \usebeamercolor[fg]{normal text}
 }
-\newcommand{\metropolis@colors@light}{
+\newcommand{\tano@colors@light}{
   \setbeamercolor{normal text}{%
     fg=mDarkTeal,
     bg=black!2
@@ -179,7 +180,7 @@
 % if changing colors mid-presentation.
 %
 %    \begin{macrocode}
-\newcommand{\metropolis@block@transparent}{
+\newcommand{\tano@block@transparent}{
   \setbeamercolor{block title}{%
     use=normal text,
     fg=normal text.fg,
@@ -189,7 +190,7 @@
     bg=
   }
 }
-\newcommand{\metropolis@block@fill}{
+\newcommand{\tano@block@fill}{
   \setbeamercolor{block title}{%
     use=normal text,
     fg=normal text.fg,
@@ -226,8 +227,8 @@
 % \subsubsection{Process package options}
 %
 %    \begin{macrocode}
-\metropolis@color@setdefaults
-\ProcessPgfPackageOptions{/metropolis/color}
+\tano@color@setdefaults
+\ProcessPgfPackageOptions{/tano/color}
 %    \end{macrocode}
 %
 %    \begin{macrocode}

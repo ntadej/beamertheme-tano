@@ -1,10 +1,11 @@
 % \iffalse meta-comment -------------------------------------------------------
-% Copyright 2015 Matthias Vogelgesang and the LaTeX community. A full list of
-% contributors can be found at
+% Copyright 2016 Tadej Novak and the LaTeX community.
+% A full list of contributors can be found at
 %
-%     https://github.com/matze/mtheme/graphs/contributors
+%     https://github.com/ntadej/beamertheme-tano/graphs/contributors
 %
-% and the original template was based on the HSRM theme by Benjamin Weiss.
+% The original template is based on the Metropolis theme by
+% Matthias Vogelgesang and on the HSRM theme by Benjamin Weiss.
 %
 % This work is licensed under a Creative Commons Attribution-ShareAlike 4.0
 % International License (https://creativecommons.org/licenses/by-sa/4.0/).
@@ -12,7 +13,7 @@
 % \iffalse
 %<*package>
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{beamerouterthememetropolis}[2016/03/14 Metropolis outer theme]
+\ProvidesPackage{beamerouterthemetano}[2016/10/20 Tano outer theme]
 %</package>
 % \fi
 % \CheckSum{0}
@@ -44,7 +45,7 @@
 %    Adds slide numbers to the bottom right of each slide.
 %    \begin{macrocode}
 \pgfkeys{
-  /metropolis/outer/numbering/.cd,
+  /tano/outer/numbering/.cd,
     .is choice,
     none/.code=\setbeamertemplate{frame numbering}[none],
     counter/.code=\setbeamertemplate{frame numbering}[counter],
@@ -57,24 +58,24 @@
 %    Adds a progress bar to the top, bottom, or frametitle of each slide.
 %    \begin{macrocode}
 \pgfkeys{
-  /metropolis/outer/progressbar/.cd,
+  /tano/outer/progressbar/.cd,
     .is choice,
     none/.code={%
       \setbeamertemplate{headline}[plain]
       \setbeamertemplate{frametitle}[plain]
       \setbeamertemplate{footline}[plain]
     },
-    head/.code={\pgfkeys{/metropolis/outer/progressbar=none}
+    head/.code={\pgfkeys{/tano/outer/progressbar=none}
       \addtobeamertemplate{headline}{}{%
         \usebeamertemplate*{progress bar in head/foot}
       }
     },
-    frametitle/.code={\pgfkeys{/metropolis/outer/progressbar=none}
+    frametitle/.code={\pgfkeys{/tano/outer/progressbar=none}
       \addtobeamertemplate{frametitle}{}{%
         \usebeamertemplate*{progress bar in head/foot}
       }
     },
-    foot/.code={\pgfkeys{/metropolis/outer/progressbar=none}
+    foot/.code={\pgfkeys{/tano/outer/progressbar=none}
       \addtobeamertemplate{footline}{}{%
         \usebeamertemplate*{progress bar in head/foot}%
       }
@@ -83,11 +84,11 @@
 %    \end{macrocode}
 % \end{macro}
 %
-% \begin{macro}{\metropolis@outer@setdefaults}
+% \begin{macro}{\tano@outer@setdefaults}
 %    Sets default values for outer theme options.
 %    \begin{macrocode}
-\newcommand{\metropolis@outer@setdefaults}{
-  \pgfkeys{/metropolis/outer/.cd,
+\newcommand{\tano@outer@setdefaults}{
+  \pgfkeys{/tano/outer/.cd,
     numbering=counter,
     progressbar=none,
   }
@@ -148,30 +149,30 @@
 %    Templates for the frame title, which is optionally underlined with a
 %    progress bar.
 %    \begin{macrocode}
-\newlength{\metropolis@frametitle@padding}
-\setlength{\metropolis@frametitle@padding}{2.2ex}
-\newcommand{\metropolis@frametitlestrut@start}{
-  \rule{0pt}{\metropolis@frametitle@padding +%
+\newlength{\tano@frametitle@padding}
+\setlength{\tano@frametitle@padding}{2.2ex}
+\newcommand{\tano@frametitlestrut@start}{
+  \rule{0pt}{\tano@frametitle@padding +%
     \totalheightof{%
-      \ifcsdef{metropolis@frametitleformat}{\metropolis@frametitleformat X}{X}%
+      \ifcsdef{tano@frametitleformat}{\tano@frametitleformat X}{X}%
     }%
   }%
 }
-\newcommand{\metropolis@frametitlestrut@end}{
-  \rule[-\metropolis@frametitle@padding]{0pt}{\metropolis@frametitle@padding}
+\newcommand{\tano@frametitlestrut@end}{
+  \rule[-\tano@frametitle@padding]{0pt}{\tano@frametitle@padding}
 }
 \defbeamertemplate{frametitle}{plain}{%
   \nointerlineskip%
   \begin{beamercolorbox}[%
       wd=\paperwidth,%
       sep=0pt,%
-      leftskip=\metropolis@frametitle@padding,%
-      rightskip=\metropolis@frametitle@padding,%
+      leftskip=\tano@frametitle@padding,%
+      rightskip=\tano@frametitle@padding,%
     ]{frametitle}%
-  \metropolis@frametitlestrut@start%
+  \tano@frametitlestrut@start%
   \insertframetitle%
   \nolinebreak%
-  \metropolis@frametitlestrut@end%
+  \tano@frametitlestrut@end%
   \end{beamercolorbox}%
 }
 \setbeamertemplate{frametitle continuation}{%
@@ -186,16 +187,16 @@
 %    on each page. Much of this code is duplicated in the inner theme's
 %    template |progress bar in section page|.
 %    \begin{macrocode}
-\newlength{\metropolis@progressinheadfoot}
+\newlength{\tano@progressinheadfoot}
 \setbeamertemplate{progress bar in head/foot}{
   \nointerlineskip
-  \setlength{\metropolis@progressinheadfoot}{%
+  \setlength{\tano@progressinheadfoot}{%
     \paperwidth * \ratio{\insertframenumber pt}{\inserttotalframenumber pt}%
   }%
   \begin{beamercolorbox}[wd=\paperwidth]{progress bar in head/foot}
     \begin{tikzpicture}
       \fill[bg] (0,0) rectangle (\paperwidth, 0.4pt);
-      \fill[fg] (0,0) rectangle (\metropolis@progressinheadfoot, 0.4pt);
+      \fill[fg] (0,0) rectangle (\tano@progressinheadfoot, 0.4pt);
     \end{tikzpicture}%
   \end{beamercolorbox}
 }
@@ -213,7 +214,7 @@
 \AtBeginDocument{%
   \apptocmd{\appendix}{%
     \pgfkeys{%
-      /metropolis/outer/.cd,
+      /tano/outer/.cd,
       numbering=none,
       progressbar=none}
     }{}{}
@@ -223,8 +224,8 @@
 % \subsubsection{Process package options}
 %
 %    \begin{macrocode}
-\metropolis@outer@setdefaults
-\ProcessPgfPackageOptions{/metropolis/outer}
+\tano@outer@setdefaults
+\ProcessPgfPackageOptions{/tano/outer}
 %    \end{macrocode}
 %
 % \iffalse

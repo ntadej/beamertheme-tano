@@ -1,22 +1,19 @@
 \documentclass[10pt]{beamer}
 
-\usetheme{metropolis}
+\usetheme{tano}
 \usepackage{appendixnumberbeamer}
 
 \usepackage{booktabs}
 \usepackage[scale=2]{ccicons}
 
-\usepackage{pgfplots}
-\usepgfplotslibrary{dateplot}
-
 \usepackage{xspace}
-\newcommand{\themename}{\textbf{\textsc{metropolis}}\xspace}
+\newcommand{\themename}{\textbf{\textsc{tano}}\xspace}
 
-\title{Metropolis}
-\subtitle{A modern beamer theme}
+\title{Tano}
+\subtitle{A personal beamer theme}
 \date{\today}
-\author{Matthias Vogelgesang}
-\institute{Center for modern beamer themes}
+\author{Tadej Novak}
+% \institute{}
 % \titlegraphic{\hfill\includegraphics[height=1.5cm]{logo.pdf}}
 
 \begin{document}
@@ -30,16 +27,18 @@
 
 \section{Introduction}
 
-\begin{frame}[fragile]{Metropolis}
+\begin{frame}[fragile]{Tano}
 
   The \themename theme is a Beamer theme with minimal visual noise
+  based on the \href{https://github.com/matze/mtheme}{\textsc{Metropolis} Beamer
+  Theme} by Matthias Vogelgesang.
   inspired by the \href{https://github.com/hsrmbeamertheme/hsrmbeamertheme}{\textsc{hsrm} Beamer
   Theme} by Benjamin Weiss.
 
   Enable the theme by loading
 
   \begin{verbatim}    \documentclass{beamer}
-    \usetheme{metropolis}\end{verbatim}
+    \usetheme{tano}\end{verbatim}
 
   Note, that you have to have Mozilla's \emph{Fira Sans} font and XeTeX
   installed to enjoy this wonderful typography.
@@ -54,7 +53,7 @@
 
 \section{Titleformats}
 
-\begin{frame}{Metropolis titleformats}
+\begin{frame}{Tano titleformats}
 	\themename supports 4 different titleformats:
 	\begin{itemize}
 		\item Regular
@@ -66,7 +65,7 @@
 \end{frame}
 
 {
-    \metroset{titleformat frame=smallcaps}
+    \tanoset{titleformat frame=smallcaps}
 \begin{frame}{Small caps}
 	This frame uses the \texttt{smallcaps} titleformat.
 
@@ -77,7 +76,7 @@
 }
 
 {
-\metroset{titleformat frame=allsmallcaps}
+\tanoset{titleformat frame=allsmallcaps}
 \begin{frame}{All small caps}
 	This frame uses the \texttt{allsmallcaps} titleformat.
 
@@ -90,7 +89,7 @@
 }
 
 {
-\metroset{titleformat frame=allcaps}
+\tanoset{titleformat frame=allcaps}
 \begin{frame}{All caps}
 	This frame uses the \texttt{allcaps} titleformat.
 
@@ -217,7 +216,7 @@ or show \textbf{bold} results.\end{verbatim}
 
     \column{0.5\textwidth}
 
-      \metroset{block=fill}
+      \tanoset{block=fill}
 
       \begin{block}{Default}
         Block content.
@@ -237,43 +236,6 @@ or show \textbf{bold} results.\end{verbatim}
   \begin{equation*}
     e = \lim_{n\to \infty} \left(1 + \frac{1}{n}\right)^n
   \end{equation*}
-\end{frame}
-\begin{frame}{Line plots}
-  \begin{figure}
-    \begin{tikzpicture}
-      \begin{axis}[
-        mlineplot,
-        width=0.9\textwidth,
-        height=6cm,
-      ]
-
-        \addplot {sin(deg(x))};
-        \addplot+[samples=100] {sin(deg(2*x))};
-
-      \end{axis}
-    \end{tikzpicture}
-  \end{figure}
-\end{frame}
-\begin{frame}{Bar charts}
-  \begin{figure}
-    \begin{tikzpicture}
-      \begin{axis}[
-        mbarplot,
-        xlabel={Foo},
-        ylabel={Bar},
-        width=0.9\textwidth,
-        height=6cm,
-      ]
-
-      \addplot plot coordinates {(1, 20) (2, 25) (3, 22.4) (4, 12.4)};
-      \addplot plot coordinates {(1, 18) (2, 24) (3, 23.5) (4, 13.2)};
-      \addplot plot coordinates {(1, 10) (2, 19) (3, 25) (4, 15.2)};
-
-      \legend{lorem, ipsum, dolor}
-
-      \end{axis}
-    \end{tikzpicture}
-  \end{figure}
 \end{frame}
 \begin{frame}{Quotes}
   \begin{quote}

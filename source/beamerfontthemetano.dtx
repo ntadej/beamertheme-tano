@@ -1,10 +1,11 @@
 % \iffalse meta-comment -------------------------------------------------------
-% Copyright 2015 Matthias Vogelgesang and the LaTeX community. A full list of
-% contributors can be found at
+% Copyright 2016 Tadej Novak and the LaTeX community.
+% A full list of contributors can be found at
 %
-%     https://github.com/matze/mtheme/graphs/contributors
+%     https://github.com/ntadej/beamertheme-tano/graphs/contributors
 %
-% and the original template was based on the HSRM theme by Benjamin Weiss.
+% The original template is based on the Metropolis theme by
+% Matthias Vogelgesang and on the HSRM theme by Benjamin Weiss.
 %
 % This work is licensed under a Creative Commons Attribution-ShareAlike 4.0
 % International License (https://creativecommons.org/licenses/by-sa/4.0/).
@@ -12,7 +13,7 @@
 % \iffalse
 %<*package>
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{beamerfontthememetropolis}[2016/03/14 Metropolis font theme]
+\ProvidesPackage{beamerfontthemetano}[2016/10/20 Tano font theme]
 %</package>
 % \fi
 % \CheckSum{0}
@@ -108,7 +109,7 @@
                    BoldItalicFont={Fira Sans Italic OT}]%
                   {Fira Sans Light OT}%
     }{%
-      \PackageWarning{beamerthememetropolis}{%
+      \PackageWarning{beamerthemetano}{%
         Could not find Fira Sans fonts%
       }
     }
@@ -119,7 +120,7 @@
     \iffontsavailable{Fira Mono OT, Fira Mono Bold OT}{%
       \setmonofont[BoldFont={Fira Mono Medium OT}]{Fira Mono OT}%
     }{%
-      \PackageWarning{beamerthememetropolis}{%
+      \PackageWarning{beamerthemetano}{%
         Could not find Fira Mono fonts%
       }
     }
@@ -128,7 +129,7 @@
     \addfontfeature{Numbers={Monospaced}}%
   }
 }{%
-  \PackageWarning{beamerthememetropolis}{%
+  \PackageWarning{beamerthemetano}{%
     You need to compile with XeLaTeX or LuaLaTeX to use the Fira fonts%
   }
 }
@@ -180,27 +181,27 @@
 %    Controls the format of the title.
 %    \begin{macrocode}
 \pgfkeys{
-  /metropolis/font/titleformat title/.cd,
+  /tano/font/titleformat title/.cd,
     .is choice,
     regular/.code={%
-      \let\metropolis@titleformat\@empty%
+      \let\tano@titleformat\@empty%
       \setbeamerfont{title}{shape=\normalfont}%
     },
     smallcaps/.code={%
-      \let\metropolis@titleformat\@empty%
+      \let\tano@titleformat\@empty%
       \setbeamerfont{title}{shape=\scshape}%
     },
     allsmallcaps/.code={%
-      \let\metropolis@titleformat\lowercase%
+      \let\tano@titleformat\lowercase%
       \setbeamerfont{title}{shape=\scshape}%
-      \PackageWarning{beamerthememetropolis}{%
+      \PackageWarning{beamerthemetano}{%
         Be aware that titleformat title=allsmallcaps can lead to problems%
       }
     },
     allcaps/.code={%
-      \let\metropolis@titleformat\uppercase%
+      \let\tano@titleformat\uppercase%
       \setbeamerfont{title}{shape=\normalfont}
-      \PackageWarning{beamerthememetropolis}{%
+      \PackageWarning{beamerthemetano}{%
         Be aware that titleformat title=allcaps can lead to problems%
       }
     },
@@ -212,27 +213,27 @@
 %    Control the format of the subtitle.
 %    \begin{macrocode}
 \pgfkeys{
-  /metropolis/font/titleformat subtitle/.cd,
+  /tano/font/titleformat subtitle/.cd,
     .is choice,
     regular/.code={%
-      \let\metropolis@subtitleformat\@empty%
+      \let\tano@subtitleformat\@empty%
       \setbeamerfont{subtitle}{shape=\normalfont}%
     },
     smallcaps/.code={%
-      \let\metropolis@subtitleformat\@empty%
+      \let\tano@subtitleformat\@empty%
       \setbeamerfont{subtitle}{shape=\scshape}%
     },
     allsmallcaps/.code={%
-      \let\metropolis@subtitleformat\lowercase%
+      \let\tano@subtitleformat\lowercase%
       \setbeamerfont{subtitle}{shape=\scshape}%
-      \PackageWarning{beamerthememetropolis}{%
+      \PackageWarning{beamerthemetano}{%
         Be aware that titleformat subtitle=allsmallcaps can lead to problems%
       }
     },
     allcaps/.code={%
-      \let\metropolis@subtitleformat\uppercase%
+      \let\tano@subtitleformat\uppercase%
       \setbeamerfont{subtitle}{shape=\normalfont}%
-      \PackageWarning{beamerthememetropolis}{%
+      \PackageWarning{beamerthemetano}{%
         Be aware that titleformat subtitle=allcaps can lead to problems%
       }
     },
@@ -244,27 +245,27 @@
 %    Controls the format of the section title.
 %    \begin{macrocode}
 \pgfkeys{
-  /metropolis/font/titleformat section/.cd,
+  /tano/font/titleformat section/.cd,
     .is choice,
     regular/.code={%
-      \let\metropolis@sectiontitleformat\@empty%
+      \let\tano@sectiontitleformat\@empty%
       \setbeamerfont{section title}{shape=\normalfont}%
     },
     smallcaps/.code={%
-      \let\metropolis@sectiontitleformat\@empty%
+      \let\tano@sectiontitleformat\@empty%
       \setbeamerfont{section title}{shape=\scshape}%
     },
     allsmallcaps/.code={%
-      \let\metropolis@sectiontitleformat\MakeLowercase%
+      \let\tano@sectiontitleformat\MakeLowercase%
       \setbeamerfont{section title}{shape=\scshape}%
-      \PackageWarning{beamerthememetropolis}{%
+      \PackageWarning{beamerthemetano}{%
         Be aware that titleformat section=allsmallcaps can lead to problems%
       }
     },
     allcaps/.code={%
-      \let\metropolis@sectiontitleformat\MakeUppercase%
+      \let\tano@sectiontitleformat\MakeUppercase%
       \setbeamerfont{section title}{shape=\normalfont}%
-      \PackageWarning{beamerthememetropolis}{%
+      \PackageWarning{beamerthemetano}{%
         Be aware that titleformat section=allcaps can lead to problems%
       }
     },
@@ -276,27 +277,27 @@
 %    Control the format of the frame title.
 %    \begin{macrocode}
 \pgfkeys{
-  /metropolis/font/titleformat frame/.cd,
+  /tano/font/titleformat frame/.cd,
     .is choice,
     regular/.code={%
-      \let\metropolis@frametitleformat\@empty%
+      \let\tano@frametitleformat\@empty%
       \setbeamerfont{frametitle}{shape=\normalfont}%
     },
     smallcaps/.code={%
-      \let\metropolis@frametitleformat\@empty%
+      \let\tano@frametitleformat\@empty%
       \setbeamerfont{frametitle}{shape=\scshape}%
     },
     allsmallcaps/.code={%
-      \let\metropolis@frametitleformat\MakeLowercase%
+      \let\tano@frametitleformat\MakeLowercase%
       \setbeamerfont{frametitle}{shape=\scshape}%
-      \PackageWarning{beamerthememetropolis}{%
+      \PackageWarning{beamerthemetano}{%
         Be aware that titleformat frame=allsmallcaps can lead to problems%
       }
     },
     allcaps/.code={%
-      \let\metropolis@frametitleformat\MakeUppercase%
+      \let\tano@frametitleformat\MakeUppercase%
       \setbeamerfont{frametitle}{shape=\normalfont}
-      \PackageWarning{beamerthememetropolis}{%
+      \PackageWarning{beamerthemetano}{%
         Be aware that titleformat frame=allcaps can lead to problems%
       }
     },
@@ -309,7 +310,7 @@
 %    declaration, where \LaTeX{} automatically removes all spaces.
 %    \begin{macrocode}
 \pgfkeys{
-  /metropolis/font/.cd,
+  /tano/font/.cd,
   titleformattitle/.code=\pgfkeysalso{titleformat title=#1},
   titleformatsubtitle/.code=\pgfkeysalso{titleformat subtitle=#1},
   titleformatsection/.code=\pgfkeysalso{titleformat section=#1},
@@ -318,11 +319,11 @@
 %    \end{macrocode}
 % \end{macro}
 %
-% \begin{macro}{\metropolis@font@setdefaults}
+% \begin{macro}{\tano@font@setdefaults}
 %    Sets default values for font theme options.
 %    \begin{macrocode}
-\newcommand{\metropolis@font@setdefaults}{
-  \pgfkeys{/metropolis/font/.cd,
+\newcommand{\tano@font@setdefaults}{
+  \pgfkeys{/tano/font/.cd,
     titleformat title=regular,
     titleformat subtitle=regular,
     titleformat section=regular,
@@ -335,10 +336,10 @@
 % We first define hooks to change the case format of the titles.
 %
 %    \begin{macrocode}
-\def\metropolis@titleformat#1{#1}
-\def\metropolis@subtitleformat#1{#1}
-\def\metropolis@sectiontitleformat#1{#1}
-\def\metropolis@frametitleformat#1{#1}
+\def\tano@titleformat#1{#1}
+\def\tano@subtitleformat#1{#1}
+\def\tano@sectiontitleformat#1{#1}
+\def\tano@frametitleformat#1{#1}
 %    \end{macrocode}
 %
 % To make the uppercase and lowercase macros work in the title, subtitle, etc.,
@@ -350,31 +351,31 @@
 %    \begin{macrocode}
 \patchcmd{\beamer@title}%
   {\def\inserttitle{#2}}%
-  {\def\inserttitle{\metropolis@titleformat{#2}}}%
+  {\def\inserttitle{\tano@titleformat{#2}}}%
   {}%
-  {\PackageError{beamerfontthememetropolis}{Patching title failed}}
+  {\PackageError{beamerfontthemetano}{Patching title failed}}
 \patchcmd{\beamer@subtitle}%
   {\def\insertsubtitle{#2}}%
-  {\def\insertsubtitle{\metropolis@subtitleformat{#2}}}%
+  {\def\insertsubtitle{\tano@subtitleformat{#2}}}%
   {}%
-  {\PackageError{beamerfontthememetropolis}{Patching subtitle failed}}
+  {\PackageError{beamerfontthemetano}{Patching subtitle failed}}
 \patchcmd{\sectionentry}
   {\def\insertsectionhead{#2}}
-  {\def\insertsectionhead{\metropolis@sectiontitleformat{#2}}}
+  {\def\insertsectionhead{\tano@sectiontitleformat{#2}}}
   {}
-  {\PackageError{beamerfontthememetropolis}{Patching section title failed}}
+  {\PackageError{beamerfontthemetano}{Patching section title failed}}
 \patchcmd{\beamer@section}
   {\def\insertsectionhead{\hyperlink{Navigation\the\c@page}{#1}}}
   {\def\insertsectionhead{\hyperlink{Navigation\the\c@page}{%
-    \metropolis@sectiontitleformat{#1}}}}
+    \tano@sectiontitleformat{#1}}}}
   {}
-  {\PackageError{beamerfontthememetropolis}{Patching section title failed}}
+  {\PackageError{beamerfontthemetano}{Patching section title failed}}
 \patchcmd{\beamer@subsection}
   {\def\insertsubsectionhead{\hyperlink{Navigation\the\c@page}{#1}}}
   {\def\insertsubsectionhead{\hyperlink{Navigation\the\c@page}{%
-    \metropolis@sectiontitleformat{#1}}}}
+    \tano@sectiontitleformat{#1}}}}
   {}
-  {\PackageError{beamerfontthememetropolis}{Patching section title failed}}
+  {\PackageError{beamerfontthemetano}{Patching section title failed}}
 %    \end{macrocode}
 %
 % Similarly, to make the |\MakeLowercase| and |\MakeUppercase| macros work in
@@ -389,14 +390,14 @@
     \gdef\beamer@shortframetitle{#1}%
     }}
   {\beamer@ifempty{#2}{}{%
-      \gdef\insertframetitle{{\metropolis@frametitleformat{#2}\ifnum%
+      \gdef\insertframetitle{{\tano@frametitleformat{#2}\ifnum%
       \beamer@autobreakcount>0\relax{}\space%
       \usebeamertemplate*{frametitle continuation}\fi}}%
     \gdef\beamer@frametitle{#2}%
     \gdef\beamer@shortframetitle{#1}%
     }}
   {}
-  {\PackageError{beamerfontthememetropolis}{Patching frame title failed}}
+  {\PackageError{beamerfontthemetano}{Patching frame title failed}}
 %    \end{macrocode}
 %
 %
@@ -404,8 +405,8 @@
 % \subsubsection{Process package options}
 %
 %    \begin{macrocode}
-\metropolis@font@setdefaults
-\ProcessPgfPackageOptions{/metropolis/font}
+\tano@font@setdefaults
+\ProcessPgfPackageOptions{/tano/font}
 %    \end{macrocode}
 % \iffalse
 %</package>

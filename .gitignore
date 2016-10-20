@@ -1,3 +1,9 @@
+## Theme files
+beamer*themetano.sty
+.latex-cache
+demo/*.pdf
+doc/*.pdf
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
