@@ -28,17 +28,13 @@ demo: $(DEMO_PDF)
 
 clean: clean-cache clean-sty
 
-install: $(PACKAGE_STY) $(DOC_PDF)
+install: $(PACKAGE_STY)
 	@mkdir -p $(INSTALL_DIR)
 	@cp $(PACKAGE_STY) $(INSTALL_DIR)
-	@mkdir -p $(DOC_DIR)
-	@cp $(DOC_PDF) $(DOC_DIR)
 
 uninstall:
-	@rm -f "$(addprefix $(INSTALL_DIR)/, $(PACKAGE_STY))"
+	@rm $(addprefix $(INSTALL_DIR)/, $(PACKAGE_STY))
 	@rmdir "$(INSTALL_DIR)"
-	@rm -f "$(DOC_DIR)/$(notdir $(DOC_PDF))"
-	@rmdir "$(DOC_DIR)"
 
 clean-cache:
 	@rm -rf "$(CACHE_DIR)"
