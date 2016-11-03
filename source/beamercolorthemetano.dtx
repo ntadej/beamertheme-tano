@@ -78,10 +78,10 @@
 % \subsubsection{Base colors}
 %
 %    \begin{macrocode}
-\definecolor{mDarkBrown}{HTML}{604c38}
-\definecolor{mDarkTeal}{HTML}{23373b}
-\definecolor{mLightBrown}{HTML}{EB811B}
-\definecolor{mLightGreen}{HTML}{14B03D}
+\colorlet{tDarkGrey}{black!90!white}
+\definecolor{tDarkBlue}{HTML}{2A4C8B}
+\definecolor{tLightBrown}{HTML}{EB4B14}
+\definecolor{tLightGreen}{HTML}{14B03D}
 %    \end{macrocode}
 %
 %
@@ -95,21 +95,31 @@
 \newcommand{\tano@colors@dark}{
   \setbeamercolor{normal text}{%
     fg=black!2,
-    bg=mDarkTeal
+    bg=tDarkBlue
   }
   \usebeamercolor[fg]{normal text}
+  \setbeamercolor{palette primary}{%
+    use=normal text,
+    fg=normal text.bg,
+    bg=normal text.fg
+  }
 }
 \newcommand{\tano@colors@light}{
   \setbeamercolor{normal text}{%
-    fg=mDarkTeal,
-    bg=black!2
+    fg=tDarkGrey,
+    bg=white
+  }
+  \setbeamercolor{palette primary}{%
+    use=normal text,
+    fg=normal text.bg,
+    bg=tDarkBlue
   }
 }
 \setbeamercolor{alerted text}{%
-  fg=mLightBrown
+  fg=tLightBrown
 }
 \setbeamercolor{example text}{%
-  fg=mLightGreen
+  fg=tLightGreen
 }
 %    \end{macrocode}
 %
@@ -124,11 +134,11 @@
 % |beamercolorthemedefault.sty|.
 %
 %    \begin{macrocode}
-\setbeamercolor{titlelike}{use=normal text, parent=normal text}
+\setbeamercolor{titlelike}{use=palette primary, parent=normal text, fg=palette primary.bg}
 \setbeamercolor{author}{use=normal text, parent=normal text}
 \setbeamercolor{date}{use=normal text, parent=normal text}
 \setbeamercolor{institute}{use=normal text, parent=normal text}
-\setbeamercolor{structure}{use=normal text, fg=normal text.fg}
+\setbeamercolor{structure}{use=palette primary, fg=palette primary.bg}
 %    \end{macrocode}
 %
 % The “primary” palette should be used for the most important navigational
@@ -136,11 +146,6 @@
 % titles and slides.
 %
 %    \begin{macrocode}
-\setbeamercolor{palette primary}{%
-  use=normal text,
-  fg=normal text.bg,
-  bg=normal text.fg
-}
 \setbeamercolor{frametitle}{%
   use=palette primary,
   parent=palette primary
